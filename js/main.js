@@ -1,4 +1,4 @@
-const getValueFromRange = (a, b) => {
+const getValueFromRange = (a, b) => { // функцию нашел здесь: https://www.youtube.com/watch?v=A41ICV0fQ0g
   if (a < 0 || b < 0) {
     return NaN;
   } else if (a === 0 && b === 0) {
