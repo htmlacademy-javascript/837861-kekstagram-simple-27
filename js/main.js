@@ -22,12 +22,5 @@ const getValueFromRange = (a, b) => { // функцию нашел здесь: h
 
 getValueFromRange();
 
-const checkStringLength = (currentString, maxLength) => {
-  if (currentString.length <= maxLength) {
-    return true;
-  } else {
-    return false;
-  }
-};
-
+const checkStringLength = (currentString, maxLength) => currentString.length <= maxLength;
 checkStringLength();
