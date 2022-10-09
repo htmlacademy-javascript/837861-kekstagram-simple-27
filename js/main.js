@@ -1,3 +1,6 @@
+const NUMBER_OF_OBJECTS = 25;
+const arrayOfObjects = [];
+
 const getValueFromRange = (a, b) => { // функцию нашел здесь: https://www.youtube.com/watch?v=A41ICV0fQ0g
   if (a < 0 || b < 0) {
     return NaN;
@@ -20,7 +23,27 @@ const getValueFromRange = (a, b) => { // функцию нашел здесь: h
   return array.sort()[0][1];
 };
 
-getValueFromRange();
-
 const checkStringLength = (currentString, maxLength) => currentString.length <= maxLength;
+let arrayItem = {};
+const createObject = () => {
+  arrayItem = ({id: 0,
+    url: 'photos/1.jpg',
+    description: 'It is the best photo I have ever seen',
+    likes: getValueFromRange(15, 200),
+    comments: getValueFromRange(0, 200)
+  });
+};
+
+const getArrayOfObjects = () => {
+  for (let i = 0; i < NUMBER_OF_OBJECTS; i++) {
+    arrayOfObjects[i] = createObject();
+    arrayOfObjects[i].id = i + 1;
+    arrayOfObjects[i].url = `photos/${i + 1}.jpg`;
+  }
+  return arrayOfObjects;
+};
+
 checkStringLength();
+getValueFromRange();
+getArrayOfObjects();
+createObject(arrayItem);
