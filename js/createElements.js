@@ -6,8 +6,8 @@ const createElements = () => {
     .content
     .querySelector('.picture');
   const pictureFragment = document.createDocumentFragment();
-  const renderPhoto = getArrayOfObjects();
-  renderPhoto.forEach(({ url, comments, likes }) => {
+  const renderPhotos = getArrayOfObjects();
+  renderPhotos.forEach(({ url, comments, likes }) => {
     const photoElement = picturesTemplate.cloneNode(true);
     photoElement.querySelector('.picture__img').src = url;
     photoElement.querySelector('.picture__likes').textContent = likes;
