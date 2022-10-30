@@ -1,4 +1,4 @@
-import { getValueFromRange } from './utils';
+import { getValueFromRange } from './utils.js';
 
 const NUMBER_OF_OBJECTS = 25;
 const arrayOfObjects = [];
@@ -7,8 +7,8 @@ const createObject = () => ({
   id: 0,
   url: '',
   description: 'It is the best photo I have ever seen',
-  likes: getValueFromRange(15, 200),
-  comments: getValueFromRange(0, 200)
+  likes: getValueFromRange(5, 50),
+  comments: getValueFromRange(10, 200)
 });
 
 const getArrayOfObjects = () => {
