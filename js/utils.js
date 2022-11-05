@@ -22,7 +22,10 @@ const getValueFromRange = (a, b) => { // функцию нашел здесь: h
 
 const checkStringLength = (currentString, maxLength) => currentString.length <= maxLength;
 
+const isEscape = (evt) => evt.key === 'Escape';
+
 export {
   getValueFromRange,
   checkStringLength,
+  isEscape
 };
