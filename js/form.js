@@ -1,4 +1,7 @@
-import { isEscape } from './utils.js';
+import { resetEffects } from './effects.js';
+import './scale.js';
+import './effects.js';
+
 
 const form = document.querySelector('.img-upload__form');
 const overlay = document.querySelector('.img-upload__overlay');
@@ -30,10 +33,11 @@ const modalClose = () => {
   body.classList.remove('modal-open');
   document.removeEventListener('keydown', onPopUpEscapeKeydown);
   fileField.value = '';
+  resetEffects();
 };
 
-function onPopUpEscapeKeydown() {
-  if (isEscape) {
+function onPopUpEscapeKeydown(evt) {
+  if (evt.key === 'Escape') {
     modalClose();
   }
 }
