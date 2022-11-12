@@ -1,9 +1,3 @@
-const image = document.querySelector('.img-upload__preview img');
-const form = document.querySelector('.img-upload__form');
-const sliderElement = document.querySelector('.effect-level__slider');
-const effectLevel = document.querySelector('.effect-level__value');
-
-
 const EFFECTS = [
   {
     name: 'none',
@@ -52,8 +46,12 @@ const EFFECTS = [
     unit: ''
   }
 ];
-
 const DEFAULT_EFFECT = EFFECTS[0];
+const image = document.querySelector('.img-upload__preview img');
+const form = document.querySelector('.img-upload__form');
+const sliderElement = document.querySelector('.effect-level__slider');
+const effectLevel = document.querySelector('.effect-level__value');
+
 let chosenEffect = DEFAULT_EFFECT;
 
 const isDefault = () => chosenEffect === DEFAULT_EFFECT;
@@ -109,7 +107,6 @@ noUiSlider.create(sliderElement, {
   step: DEFAULT_EFFECT.step,
   connect: 'lower',
 });
-
 
 updateSlider();
 
