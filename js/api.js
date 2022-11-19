@@ -1,19 +1,30 @@
 import { createSuccessMessage, createErrorMessage } from './create-elements.js';
 import { unBlockSubmitButton } from './form.js';
 
+const GET_DATA_ADRESS = 'https://27.javascript.pages.academy/kekstagram-simple/data';
+const SEND_DATA_ADRESS = 'https://27.javascript.pages.academy/kekstagram-simple';
 const overlay = document.querySelector('.img-upload__overlay');
 
-const getData = (onSuccess) => {
-  fetch('https://27.javascript.pages.academy/kekstagram-simple/data')
-    .then((response) => response.json())
+const getData = (onSuccess, onFail) => {
+  fetch(GET_DATA_ADRESS)
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        onFail();
+      }
+    })
     .then((photos) => {
       onSuccess(photos);
+    })
+    .catch(() => {
+      onFail();
     });
 };
 
 const sendData = (onSuccess, onFail, body) => {
   fetch(
-    'https://27.javascript.pages.academy/kekstagram-simple',
+    SEND_DATA_ADRESS,
     {
       method: 'POST',
       body,
@@ -23,20 +34,15 @@ const sendData = (onSuccess, onFail, body) => {
       if (response.ok) {
         onSuccess();
         createSuccessMessage();
-        console.log('success done');
       } else {
-        onFail('Server is unavailable now');
+        onFail('Unable to send the form. Try again later.');
       }
     })
-    // .catch(() => {
-    //   onFail('Server is unavailable now');
-    // }
-    .catch(
-      overlay.classList.remove('unremovable'),
-      console.log('catch done'),
-      createErrorMessage(),
-      unBlockSubmitButton(),
-    );
+    .catch(() => {
+      overlay.classList.remove('unremovable');
+      createErrorMessage();
+      unBlockSubmitButton();
+    });
 };
 
 export {

@@ -67,11 +67,11 @@ const onErrorMessageEscapeKeydown = (evt) => {
     errorMessageElement.remove();
   }
 };
-// const notMessageElementOnclick = (evt) => {
-//   if (evt.target !== successMessageElement) {
-//     successMessageElement.remove();
-//   }
-// };
+const notErrorMessageElementOnclick = (evt) => {
+  if (evt.target !== errorMessageElement) {
+    errorMessageElement.remove();
+  }
+};
 
 succesButton.addEventListener('click', () => successMessageElement.remove());
 window.addEventListener('keydown', onSuccessMessageEscapeKeydown);
@@ -79,11 +79,12 @@ window.addEventListener('click', notSuccessMessageElementOnclick);
 
 errorButton.addEventListener('click', () => errorMessageElement.remove());
 window.addEventListener('keydown', onErrorMessageEscapeKeydown);
-// window.addEventListener('click', notMessageElementOnclick);
+window.addEventListener('click', notErrorMessageElementOnclick);
 
 export {
   createElements,
   createSuccessMessage,
   createErrorMessage,
-  onSuccessMessageEscapeKeydown
+  onSuccessMessageEscapeKeydown,
+  notErrorMessageElementOnclick
 };
