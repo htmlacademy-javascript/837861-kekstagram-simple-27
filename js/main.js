@@ -8,8 +8,8 @@ import { showAlert } from './utils.js';
 getData((photos) => {
   createElements(photos);
 },
-  () => {
-    showAlert('Can not upload photos from the server');
-  });
+() => {
+  showAlert('Can not upload photos from the server');
+});
 
 setUserFormSubmit(modalClose);
